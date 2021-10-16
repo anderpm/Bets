@@ -27,9 +27,13 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 					 </execution>
 				 </executions>
 </plugin>
-
-
  
+ <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.19.1</version>
+        </plugin>
+        
 			</plugins>
 </build>
 <repositories>
@@ -45,9 +49,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 				<sonar.organization>anderpm</sonar.organization>
 				<sonar.host.url>https://sonarcloud.io</sonar.host.url>		
-				<sonar.projectKey>anderpm</sonar.projectKey>
-				    <argLine>-Xmx1G</argLine>
-						
+				<sonar.projectKey>anderpm</sonar.projectKey>		
 </properties>
 <!-- https://mvnrepository.com/artifact/junit/junit	-->
 <dependencies>
