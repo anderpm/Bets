@@ -16,7 +16,7 @@ import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DiruaSartuMockINT {
+public class DiruaSartuMockINTest {
 
 	/*
 	@Mock
