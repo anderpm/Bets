@@ -31,9 +31,39 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 <plugin>
   <artifactId>maven-surefire-plugin</artifactId>
   <configuration>
-   <argLine>${argLine}</argLine>
+    <skip>true</skip>
   </configuration>
- </plugin>
+  <executions>
+    <execution>
+      <id>unit-test</id>
+      <phase>test</phase>
+      <goals>
+        <goal>test</goal>
+      </goals>
+      <configuration>
+        <skip>${maven.test.skip}</skip>
+        <argLine>${argLine}</argLine>
+        <excludes>
+          <exclude>**/*IntegrationTest.java</exclude>
+        </excludes>
+      </configuration>
+    </execution>
+    <execution>
+      <id>integration-test</id>
+      <phase>integration-test</phase>
+      <goals>
+        <goal>test</goal>
+      </goals>
+      <configuration>
+        <skip>${skipITs}</skip>
+        <argLine>${argLine}</argLine>
+        <includes>
+          <include>**/*IntegrationTest.java</include>
+        </includes>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
  
 			</plugins>
 </build>
