@@ -11,7 +11,7 @@ import org.junit.Test;
 import dataAccess.DataAccess;
 import test.TestDataAccess;
 
-public class DiruaSartuDAW {
+public class DiruaSartuDAWTest {
 
 	static DataAccess sut = new DataAccess(true);
 	
