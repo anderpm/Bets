@@ -16,9 +16,9 @@ import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DiruaSartuMockINTest {
+public class DiruaSartuMockIN {
 
-	/*
+	
 	@Mock
 	DataAccess DiruaSartuDAO;
 	
@@ -28,9 +28,8 @@ public class DiruaSartuMockINTest {
 	@Test
 	public void test1() {
 
-		DiruaSartuDAO.register("Ander", "pass");
-	
+		assertTrue(true);
 	}
-	*/
+	
 	
 }
