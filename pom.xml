@@ -28,42 +28,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 				 </executions>
 </plugin>
 
-<plugin>
-  <artifactId>maven-surefire-plugin</artifactId>
-  <configuration>
-    <skip>true</skip>
-  </configuration>
-  <executions>
-    <execution>
-      <id>unit-test</id>
-      <phase>test</phase>
-      <goals>
-        <goal>test</goal>
-      </goals>
-      <configuration>
-        <skip>${maven.test.skip}</skip>
-        <argLine>${argLine}</argLine>
-        <excludes>
-          <exclude>**/*IntegrationTest.java</exclude>
-        </excludes>
-      </configuration>
-    </execution>
-    <execution>
-      <id>integration-test</id>
-      <phase>integration-test</phase>
-      <goals>
-        <goal>test</goal>
-      </goals>
-      <configuration>
-        <skip>${skipITs}</skip>
-        <argLine>${argLine}</argLine>
-        <includes>
-          <include>**/*IntegrationTest.java</include>
-        </includes>
-      </configuration>
-    </execution>
-  </executions>
-</plugin>
+
  
 			</plugins>
 </build>
@@ -80,7 +45,9 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 				<sonar.organization>anderpm</sonar.organization>
 				<sonar.host.url>https://sonarcloud.io</sonar.host.url>		
-				<sonar.projectKey>anderpm</sonar.projectKey>		
+				<sonar.projectKey>anderpm</sonar.projectKey>
+				    <argLine>-Xmx1G</argLine>
+						
 </properties>
 <!-- https://mvnrepository.com/artifact/junit/junit	-->
 <dependencies>
