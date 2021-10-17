@@ -577,7 +577,7 @@ public int addBet(Pronostic p, double zenbat, Bezeroa bezero, Question q) {
 	}
 
 	
-	public void addTBet(Bezeroa bezero, Event event, Question question, Pronostic pronostic, double betAmount, Vector<Bet> b) {
+	public void addTBet(Bezeroa bezero, Question question, Pronostic pronostic, double betAmount, Vector<Bet> b) {
 		TMBet tb = new TMBet(question, pronostic, betAmount, b);
 		Bezeroa b2 = db.find(Bezeroa.class, bezero.getUserName());
 		db.getTransaction().begin();
