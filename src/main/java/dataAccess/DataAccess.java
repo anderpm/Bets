@@ -310,57 +310,53 @@ public class DataAccess  {
 			System.out.println(zenbat);
 			if(zenbat <= 0) {
 				return false;
-	
-			}
-			Bezeroa bezero = db.find(Bezeroa.class, userName);
-			db.getTransaction().begin();
-			if(!bezero.isLimit()) {
-				double actual = bezero.getCash();
-				bezero.setCash(actual + zenbat);
-				bezero.addTransactionInOut(0, zenbat);
-				db.getTransaction().commit();
-				System.out.println("amount: " + actual + zenbat);
-				return true;
-			}
-			else if(!bezero.calculateDate() && bezero.isLimit()) {
-				boolean res = true;
-				double actual = bezero.getCash();
-				if((bezero.getActualLimit() + zenbat) > bezero.getMaxLimit()) {
-					res = false;
-				}
-				else {
-					bezero.setCash(actual + zenbat);
-					bezero.addTransactionInOut(0, zenbat);
-					bezero.setActualLimit(bezero.getActualLimit() + actual +zenbat);
-				}
-				db.getTransaction().commit();
-				System.out.println("amount:"+actual + zenbat);
-				return res;
-			}
-			else if(bezero.isLimit()){
-				bezero.setActualLimit(0);
-				bezero.setLimitDate();
-				boolean res = true;
-				double actual = bezero.getCash();
-				if((bezero.getActualLimit() + zenbat) > bezero.getMaxLimit()) {
-					res = false;
-				}
-				else {
-					bezero.setCash(actual + zenbat);
-					bezero.addTransactionInOut(0, zenbat);
-					bezero.setActualLimit(bezero.getActualLimit() + actual +zenbat);
-				}
-				db.getTransaction().commit();
-				System.out.println("amount:"+actual + zenbat);
-				return res;
-			}
-			else {
-				return false;
+			} else {
+				return extractedDiruaSartu1(userName, zenbat);
 			}
 		}catch(Exception e){
 			System.out.println("Error Amount");
 			return false;
 		}
+	}
+
+	private boolean extractedDiruaSartu1(String userName, double zenbat) {
+		Bezeroa bezero = db.find(Bezeroa.class, userName);
+		db.getTransaction().begin();
+		if(!bezero.isLimit()) {
+			double actual = bezero.getCash();
+			bezero.setCash(actual + zenbat);
+			bezero.addTransactionInOut(0, zenbat);
+			db.getTransaction().commit();
+			System.out.println("amount: " + actual + zenbat);
+			return true;
+		}
+		else if(!bezero.calculateDate() && bezero.isLimit()) {
+			return extractedDiruaSartu2(zenbat, bezero);
+		}
+		else if(bezero.isLimit()){
+			bezero.setActualLimit(0);
+			bezero.setLimitDate();
+			return extractedDiruaSartu2(zenbat, bezero);
+		}
+		else {
+			return false;
+		}
+	}
+
+	private boolean extractedDiruaSartu2(double zenbat, Bezeroa bezero) {
+		boolean res = true;
+		double actual = bezero.getCash();
+		if((bezero.getActualLimit() + zenbat) > bezero.getMaxLimit()) {
+			res = false;
+		}
+		else {
+			bezero.setCash(actual + zenbat);
+			bezero.addTransactionInOut(0, zenbat);
+			bezero.setActualLimit(bezero.getActualLimit() + actual +zenbat);
+		}
+		db.getTransaction().commit();
+		System.out.println("amount:"+actual + zenbat);
+		return res;
 	}
 	
 	public boolean diruaAtera(String userName, double zenbat) {
@@ -541,41 +537,43 @@ public int addBet(Pronostic p, double zenbat, Bezeroa bezero, Question q) {
 			db.getTransaction().begin();
 			Pronostic pronostic = db.find(Pronostic.class, p.getId());
 			pronostic.deleteNull();
-			
 			System.out.println(pronostic.getDescription());
 			Vector<MultipleBets> bets = pronostic.getBets();
-			for(MultipleBets b:bets) {
-				System.out.println(b.getId());
-				
-				if(b.getBetLength() == 1) {
-					b.deleteBet(pronostic);
-					//this.diruaSartu(b.getUserName(), (b.getAmount()*b.getTotalPronostic()));
-					Bezeroa bezero = db.find(Bezeroa.class, b.getUserName());
-					
-					double actual = bezero.getCash();
-					bezero.setCash(actual + (b.getAmount()*b.getTotalPronostic()));
-					System.out.println(bezero.getCash());
-					bezero.addTransactionInOut(0, (b.getAmount()*b.getTotalPronostic()));
-					
-					db.persist(bezero);
-					
-				}
-				else {
-					b.deleteBet(pronostic);
-				}
-				db.persist(b);
-				if(b.getBetLength()==0) {
-					p.deleteMB(b);
-					db.remove(b);
-				}
-			}
+			
+			extracted1(p, pronostic, bets);
+			
 			db.getTransaction().commit();
 			return true;
-		}
-		catch(Exception e) {
+		} catch(Exception e) {
 			System.out.println(e);
 			return false;
 		}
+	}
+
+	private void extracted1(Pronostic p, Pronostic pronostic, Vector<MultipleBets> bets) {
+		for(MultipleBets b:bets) {
+			System.out.println(b.getId());
+			if(b.getBetLength() == 1) {
+				extracted2(pronostic, b);
+			} else {
+				b.deleteBet(pronostic);
+			}
+			db.persist(b);
+			if(b.getBetLength()==0) {
+				p.deleteMB(b);
+				db.remove(b);
+			}
+		}
+	}
+
+	private void extracted2(Pronostic pronostic, MultipleBets b) {
+		b.deleteBet(pronostic);
+		Bezeroa bezero = db.find(Bezeroa.class, b.getUserName());		
+		double actual = bezero.getCash();
+		bezero.setCash(actual + (b.getAmount()*b.getTotalPronostic()));
+		System.out.println(bezero.getCash());
+		bezero.addTransactionInOut(0, (b.getAmount()*b.getTotalPronostic()));
+		db.persist(bezero);
 	}
 
 	
