@@ -238,7 +238,10 @@ public class BLFacadeImplementation  implements BLFacade {
 
 	@WebMethod public void addTBet(Bezeroa bezero, Event event, Question question, Pronostic pronostic, double betAmount, Vector<Bet> b) {
 		dbManager.open(false);
-		dbManager.addTBet(bezero, question, pronostic, betAmount, b);
+		Vector<Object> v = new Vector();
+		v.add(question);
+		v.add(pronostic);
+		dbManager.addTBet(bezero, betAmount, b, null);
 		dbManager.close();
 	}
 
