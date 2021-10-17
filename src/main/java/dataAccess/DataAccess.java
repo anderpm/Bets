@@ -628,18 +628,12 @@ public int addBet(Pronostic p, double zenbat, Bezeroa bezero, Question q) {
 		b = db.find(Bezeroa.class, b);
 		boolean res;
 		db.getTransaction().begin();
-		if(b.getLimitDate() == null) {
+		if(b.getLimitDate() == null || b.calculateDate()) {
 			b.setLimitDate();
 			b.setLimit(true);
 			b.setMaxLimit(limit);
 			res = true;
-		}
-		else if(b.calculateDate()) {
-			b.setLimitDate();
-			b.setLimit(true);
-			b.setMaxLimit(limit);
-			res = true;
-		}
+		} 
 		else {
 			res = false;
 		}
