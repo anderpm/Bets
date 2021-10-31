@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TCashInOut.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bets21</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">TCashInOut.java</span></div><h1>TCashInOut.java</h1><pre class="source lang-java linenums">package domain;
+
+import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
+@Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TCashInOut extends Transaction {
+
+	private int operation;
+	private double cashAmount;
+	
+	
+	/**
+	 * TCashInOut klasearen eraikitzailea.
+	 * @param transactionID, TCashInOut-ren transactionID bezala ezarriko da.
+	 * @param operation, operation-ren transactionID bezala ezarriko da.
+	 * @param cashAmount, cashAmount-ren transactionID bezala ezarriko da.
+	 */
+	public TCashInOut(int operation, double cashAmount) {
+<span class="fc" id="L22">		super();</span>
+<span class="fc" id="L23">		this.operation = operation;</span>
+<span class="fc" id="L24">		this.cashAmount = cashAmount;</span>
+<span class="fc" id="L25">	}</span>
+	
+	/**
+	 * TCashInOut-ren operation atributuaren getter-a.
+	 * @return TCashInOut-ren operation. True &quot;Sartu&quot; bada, false &quot;Atera bada.
+	 */
+	public int isOperation() {
+<span class="nc" id="L32">		return operation;</span>
+	}
+	
+	/**
+	 * TCashInOut-ren operation atributuaren setter-a.
+	 * @param operation, true &quot;Sartu&quot; bada, false &quot;Atera bada.
+	 */
+	public void setOperation(int operation) {
+<span class="nc" id="L40">		this.operation = operation;</span>
+<span class="nc" id="L41">	}</span>
+	
+	/**
+	 * TCashInOut-ren cashAmount atributuaren getter-a.
+	 * @return TCashInOut-ren cashAmount.
+	 */
+	public double getCashAmount() {
+<span class="nc" id="L48">		return cashAmount;</span>
+	}
+	
+	/**
+	 * TCashInOut-ren cashAmount atributuaren setter-a.
+	 * @param cashAmount, TcashInOut-ren cashAmount bezala ezarriko da.
+	 */
+	public void setCashAmount(double cashAmount) {
+<span class="nc" id="L56">		this.cashAmount = cashAmount;</span>
+<span class="nc" id="L57">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

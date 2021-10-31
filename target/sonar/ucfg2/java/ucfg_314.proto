@@ -1,0 +1,102 @@
+
+bbusinessLogic.BLFacadeImplementation#addBet(Ldomain/Pronostic;DLdomain/Bezeroa;Ldomain/Question;)I~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaŸ Ÿ("startingBlock*è
+
+startingBlock~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaŸ Ÿ(J«
+ƒ
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaÿ ÿ(
+%6"
+__annotate*
+javax.jws.WebMethod*
+
+pdomain.Pronostic∞
+≠
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaŸ Ÿ(
+pdomain.Pronostic"__annotation*
+
+%6 
+«
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaÿ ÿ(
+%7"
+__annotate*
+javax.jws.WebMethod*
+
+bezerodomain.Bezeroa≥
+∞
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaŸ7 Ÿ(=
+bezerodomain.Bezeroa"__annotation*
+
+%7∆
+√
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaÿ ÿ(
+%8"
+__annotate*
+javax.jws.WebMethod*
+
+qdomain.QuestionØ
+¨
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaŸH Ÿ(I
+qdomain.Question"__annotation*
+
+%8*
+1*à
+1~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java⁄ ⁄(ﬂ
+‹
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java⁄ ⁄(
+%0dataAccess.DataAccess"__id*7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerﬂ‹
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java⁄ ⁄(
+
+%1void"dataAccess.DataAccess#open(Z)V*
+
+%0dataAccess.DataAccess*
+""2open(Z)ﬂ
+‹
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java€ €(
+%2dataAccess.DataAccess"__id*7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerïí
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java€ €(2	
+%3int"SdataAccess.DataAccess#addBet(Ldomain/Pronostic;DLdomain/Bezeroa;Ldomain/Question;)I*
+
+%2dataAccess.DataAccess*
+
+pdomain.Pronostic*
+""*
+
+bezerodomain.Bezeroa*
+
+qdomain.Question2<addBet(Ldomain/Pronostic;DLdomain/Bezeroa;Ldomain/Question;)ﬂ
+‹
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‹ ‹(
+%4dataAccess.DataAccess"__id*7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager◊‘
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‹ ‹(
+
+%5void"dataAccess.DataAccess#close()V*
+
+%4dataAccess.DataAccess2close()"à
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java› ›(
+"":
+pdomain.Pronostic:
+"":
+bezerodomain.Bezeroa:
+qdomain.QuestionB(&
+$businessLogic.BLFacadeImplementation

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataAccessDiruaSartu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bets21</a> &gt; <a href="index.source.html" class="el_package">dataAccess</a> &gt; <span class="el_source">DataAccessDiruaSartu.java</span></div><h1>DataAccessDiruaSartu.java</h1><pre class="source lang-java linenums">package dataAccess;
+
+//hello
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.Vector;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+import configuration.ConfigXML;
+import configuration.UtilDate;
+import domain.Admin;
+import domain.Bet;
+import domain.Bezeroa;
+import domain.Copy;
+import domain.Event;
+import domain.MultipleBets;
+import domain.Pronostic;
+import domain.Question;
+import domain.TMBet;
+import domain.TCashInOut;
+import domain.User;
+import exceptions.QuestionAlreadyExist;
+
+/**
+ * It implements the data access to the objectDb database
+ */
+public class DataAccessDiruaSartu  {
+	protected static EntityManager  db;
+	protected static EntityManagerFactory emf;
+
+
+<span class="pc" id="L41">	ConfigXML c=ConfigXML.getInstance();</span>
+
+<span class="fc" id="L43">     public DataAccessDiruaSartu(boolean initializeMode)  {</span>
+		
+<span class="fc" id="L45">		System.out.println(&quot;Creating DataAccess instance =&gt; isDatabaseLocal: &quot;+c.isDatabaseLocal()+&quot; getDatabBaseOpenMode: &quot;+c.getDataBaseOpenMode());</span>
+
+<span class="fc" id="L47">		open(initializeMode);</span>
+<span class="fc" id="L48">		close();</span>
+		
+<span class="fc" id="L50">	}</span>
+
+<span class="nc" id="L52">	public DataAccessDiruaSartu()  {	</span>
+<span class="nc" id="L53">		 new DataAccessDiruaSartu(false);</span>
+<span class="nc" id="L54">	}</span>
+	
+	
+	/**
+	 * This is the data access method that initializes the database with some events and questions.
+	 * This method is invoked by the business logic (constructor of BLFacadeImplementation) when the option &quot;initialize&quot; is declared in the tag dataBaseOpenMode of resources/config.xml file
+	 */	
+	public void initializeDB(){
+		
+<span class="nc" id="L63">		db.getTransaction().begin();</span>
+		try {
+
+			
+<span class="nc" id="L67">		   Calendar today = Calendar.getInstance();</span>
+		   
+<span class="nc" id="L69">		   int month=today.get(Calendar.MONTH);</span>
+<span class="nc" id="L70">		   month+=1;</span>
+<span class="nc" id="L71">		   int year=today.get(Calendar.YEAR);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		   if (month==12) { month=0; year+=1;}  </span>
+	    
+<span class="nc" id="L74">			Event ev1=new Event(1, &quot;Atlético-Athletic&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L75">			Event ev2=new Event(2, &quot;Eibar-Barcelona&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L76">			Event ev3=new Event(3, &quot;Getafe-Celta&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L77">			Event ev4=new Event(4, &quot;Alavés-Deportivo&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L78">			Event ev5=new Event(5, &quot;Español-Villareal&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L79">			Event ev6=new Event(6, &quot;Las Palmas-Sevilla&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L80">			Event ev7=new Event(7, &quot;Malaga-Valencia&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L81">			Event ev8=new Event(8, &quot;Girona-Leganés&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L82">			Event ev9=new Event(9, &quot;Real Sociedad-Levante&quot;, UtilDate.newDate(year,month,17));</span>
+<span class="nc" id="L83">			Event ev10=new Event(10, &quot;Betis-Real Madrid&quot;, UtilDate.newDate(year,month,17));</span>
+
+<span class="nc" id="L85">			Event ev11=new Event(11, &quot;Atletico-Athletic&quot;, UtilDate.newDate(year,month,1));</span>
+<span class="nc" id="L86">			Event ev12=new Event(12, &quot;Eibar-Barcelona&quot;, UtilDate.newDate(year,month,1));</span>
+<span class="nc" id="L87">			Event ev13=new Event(13, &quot;Getafe-Celta&quot;, UtilDate.newDate(year,month,1));</span>
+<span class="nc" id="L88">			Event ev14=new Event(14, &quot;Alavés-Deportivo&quot;, UtilDate.newDate(year,month,1));</span>
+<span class="nc" id="L89">			Event ev15=new Event(15, &quot;Español-Villareal&quot;, UtilDate.newDate(year,month,1));</span>
+<span class="nc" id="L90">			Event ev16=new Event(16, &quot;Las Palmas-Sevilla&quot;, UtilDate.newDate(year,month,1));</span>
+			
+
+<span class="nc" id="L93">			Event ev17=new Event(17, &quot;Málaga-Valencia&quot;, UtilDate.newDate(year,month+1,28));</span>
+<span class="nc" id="L94">			Event ev18=new Event(18, &quot;Girona-Leganés&quot;, UtilDate.newDate(year,month+1,28));</span>
+<span class="nc" id="L95">			Event ev19=new Event(19, &quot;Real Sociedad-Levante&quot;, UtilDate.newDate(year,month+1,28));</span>
+<span class="nc" id="L96">			Event ev20=new Event(20, &quot;Betis-Real Madrid&quot;, UtilDate.newDate(year,month+1,28));</span>
+			
+			Question q1;
+			Question q2;
+			Question q3;
+			Question q4;
+			Question q5;
+			Question q6;
+					
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (Locale.getDefault().equals(new Locale(&quot;es&quot;))) {</span>
+<span class="nc" id="L106">				final String question1 = &quot;¿Quién ganará el partido?&quot;;</span>
+<span class="nc" id="L107">				q1=ev1.addQuestion(question1,1);</span>
+<span class="nc" id="L108">				q2=ev1.addQuestion(&quot;¿Quién meterá el primer gol?&quot;,2);</span>
+<span class="nc" id="L109">				q3=ev11.addQuestion(question1,1);</span>
+<span class="nc" id="L110">				q4=ev11.addQuestion(&quot;¿Cuántos goles se marcarán?&quot;,2);</span>
+<span class="nc" id="L111">				q5=ev17.addQuestion(question1,1);</span>
+<span class="nc" id="L112">				q6=ev17.addQuestion(&quot;¿Habrá goles en la primera parte?&quot;,2);</span>
+<span class="nc" id="L113">			}</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">			else if (Locale.getDefault().equals(new Locale(&quot;en&quot;))) {</span>
+<span class="nc" id="L115">				final String question2 = &quot;Who will win the match?&quot;;</span>
+<span class="nc" id="L116">				q1=ev1.addQuestion(question2,1);</span>
+<span class="nc" id="L117">				q2=ev1.addQuestion(&quot;Who will score first?&quot;,2);</span>
+<span class="nc" id="L118">				q3=ev11.addQuestion(question2,1);</span>
+<span class="nc" id="L119">				q4=ev11.addQuestion(&quot;How many goals will be scored in the match?&quot;,2);</span>
+<span class="nc" id="L120">				q5=ev17.addQuestion(question2,1);</span>
+<span class="nc" id="L121">				q6=ev17.addQuestion(&quot;Will there be goals in the first half?&quot;,2);</span>
+<span class="nc" id="L122">			}			</span>
+			else {
+<span class="nc" id="L124">				final String question3 = &quot;Zeinek irabaziko du partidua?&quot;;</span>
+<span class="nc" id="L125">				q1=ev1.addQuestion(question3,1);</span>
+<span class="nc" id="L126">				q2=ev1.addQuestion(&quot;Zeinek sartuko du lehenengo gola?&quot;,2);</span>
+<span class="nc" id="L127">				q3=ev11.addQuestion(question3,1);</span>
+<span class="nc" id="L128">				q4=ev11.addQuestion(&quot;Zenbat gol sartuko dira?&quot;,2);</span>
+<span class="nc" id="L129">				q5=ev17.addQuestion(question3,1);</span>
+<span class="nc" id="L130">				q6=ev17.addQuestion(&quot;Golak sartuko dira lehenengo zatian?&quot;,2);</span>
+			}
+			
+<span class="nc" id="L133">			db.persist(q1);</span>
+<span class="nc" id="L134">			db.persist(q2);</span>
+<span class="nc" id="L135">			db.persist(q3);</span>
+<span class="nc" id="L136">			db.persist(q4);</span>
+<span class="nc" id="L137">			db.persist(q5);</span>
+<span class="nc" id="L138">			db.persist(q6); </span>
+	        
+<span class="nc" id="L140">			db.persist(ev1);</span>
+<span class="nc" id="L141">			db.persist(ev2);</span>
+<span class="nc" id="L142">			db.persist(ev3);</span>
+<span class="nc" id="L143">			db.persist(ev4);</span>
+<span class="nc" id="L144">			db.persist(ev5);</span>
+<span class="nc" id="L145">			db.persist(ev6);</span>
+<span class="nc" id="L146">			db.persist(ev7);</span>
+<span class="nc" id="L147">			db.persist(ev8);</span>
+<span class="nc" id="L148">			db.persist(ev9);</span>
+<span class="nc" id="L149">			db.persist(ev10);</span>
+<span class="nc" id="L150">			db.persist(ev11);</span>
+<span class="nc" id="L151">			db.persist(ev12);</span>
+<span class="nc" id="L152">			db.persist(ev13);</span>
+<span class="nc" id="L153">			db.persist(ev14);</span>
+<span class="nc" id="L154">			db.persist(ev15);</span>
+<span class="nc" id="L155">			db.persist(ev16);</span>
+<span class="nc" id="L156">			db.persist(ev17);</span>
+<span class="nc" id="L157">			db.persist(ev18);</span>
+<span class="nc" id="L158">			db.persist(ev19);</span>
+<span class="nc" id="L159">			db.persist(ev20);			</span>
+			
+<span class="nc" id="L161">			Admin admin = new Admin(&quot;admin&quot;, &quot;admin&quot;);</span>
+<span class="nc" id="L162">			db.persist(admin);</span>
+			
+<span class="nc" id="L164">			db.getTransaction().commit();</span>
+<span class="nc" id="L165">			System.out.println(&quot;Db initialized&quot;);</span>
+			
+		}
+<span class="nc" id="L168">		catch (Exception e){</span>
+<span class="nc" id="L169">			e.printStackTrace();</span>
+<span class="nc" id="L170">		}</span>
+<span class="nc" id="L171">	}</span>
+	
+	
+
+	public void open(boolean initializeMode){
+		
+<span class="fc" id="L177">		System.out.println(&quot;Opening DataAccess instance =&gt; isDatabaseLocal: &quot;+c.isDatabaseLocal()+&quot; getDatabBaseOpenMode: &quot;+c.getDataBaseOpenMode());</span>
+
+<span class="fc" id="L179">		String fileName=c.getDbFilename();</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">		if (initializeMode) {</span>
+<span class="fc" id="L181">			fileName=fileName+&quot;;drop&quot;;</span>
+<span class="fc" id="L182">			System.out.println(&quot;Deleting the DataBase&quot;);</span>
+		}
+		
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">		if (c.isDatabaseLocal()) {</span>
+<span class="fc" id="L186">			  emf = Persistence.createEntityManagerFactory(&quot;objectdb:&quot;+fileName);</span>
+<span class="fc" id="L187">			  db = emf.createEntityManager();</span>
+		} else {
+<span class="nc" id="L189">			Map&lt;String, String&gt; properties = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L190">			  properties.put(&quot;javax.persistence.jdbc.user&quot;, c.getUser());</span>
+<span class="nc" id="L191">			  properties.put(&quot;javax.persistence.jdbc.password&quot;, c.getPassword());</span>
+
+<span class="nc" id="L193">			  emf = Persistence.createEntityManagerFactory(&quot;objectdb://&quot;+c.getDatabaseNode()+&quot;:&quot;+c.getDatabasePort()+&quot;/&quot;+fileName, properties);</span>
+
+<span class="nc" id="L195">			  db = emf.createEntityManager();</span>
+    	   }
+		
+<span class="fc" id="L198">	}</span>
+	
+	
+	public void close(){
+<span class="fc" id="L202">		db.close();</span>
+<span class="fc" id="L203">		System.out.println(&quot;DataBase closed&quot;);</span>
+<span class="fc" id="L204">	}</span>
+	
+	
+	public boolean diruaSartu(String userName, double zenbat) {
+		try{
+<span class="fc" id="L209">			System.out.println(zenbat);</span>
+<span class="pc bpc" id="L210" title="1 of 2 branches missed.">			if(zenbat &lt;= 0) {</span>
+<span class="nc" id="L211">				return false;</span>
+			} else {
+<span class="nc" id="L213">				return extractedDiruaSartu1(userName, zenbat);</span>
+			}
+<span class="fc" id="L215">		}catch(Exception e){</span>
+<span class="fc" id="L216">			System.out.println(&quot;Error Amount&quot;);</span>
+<span class="fc" id="L217">			return false;</span>
+		}
+	}
+
+	private boolean extractedDiruaSartu1(String userName, double zenbat) {
+<span class="nc" id="L222">		Bezeroa bezero = db.find(Bezeroa.class, userName);</span>
+<span class="nc" id="L223">		db.getTransaction().begin();</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">		if(!bezero.isLimit()) {</span>
+<span class="nc" id="L225">			double actual = bezero.getCash();</span>
+<span class="nc" id="L226">			bezero.setCash(actual + zenbat);</span>
+<span class="nc" id="L227">			bezero.addTransactionInOut(0, zenbat);</span>
+<span class="nc" id="L228">			db.getTransaction().commit();</span>
+<span class="nc" id="L229">			System.out.println(&quot;amount: &quot; + actual + zenbat);</span>
+<span class="nc" id="L230">			return true;</span>
+		}
+<span class="nc bnc" id="L232" title="All 4 branches missed.">		else if(!bezero.calculateDate() &amp;&amp; bezero.isLimit()) {</span>
+<span class="nc" id="L233">			return extractedDiruaSartu2(zenbat, bezero);</span>
+		}
+<span class="nc bnc" id="L235" title="All 2 branches missed.">		else if(bezero.isLimit()){</span>
+<span class="nc" id="L236">			bezero.setActualLimit(0);</span>
+<span class="nc" id="L237">			bezero.setLimitDate();</span>
+<span class="nc" id="L238">			return extractedDiruaSartu2(zenbat, bezero);</span>
+		}
+		else {
+<span class="nc" id="L241">			return false;</span>
+		}
+	}
+
+	private boolean extractedDiruaSartu2(double zenbat, Bezeroa bezero) {
+<span class="nc" id="L246">		boolean res = true;</span>
+<span class="nc" id="L247">		double actual = bezero.getCash();</span>
+<span class="nc bnc" id="L248" title="All 2 branches missed.">		if((bezero.getActualLimit() + zenbat) &gt; bezero.getMaxLimit()) {</span>
+<span class="nc" id="L249">			res = false;</span>
+		}
+		else {
+<span class="nc" id="L252">			bezero.setCash(actual + zenbat);</span>
+<span class="nc" id="L253">			bezero.addTransactionInOut(0, zenbat);</span>
+<span class="nc" id="L254">			bezero.setActualLimit(bezero.getActualLimit() + actual +zenbat);</span>
+		}
+<span class="nc" id="L256">		db.getTransaction().commit();</span>
+<span class="nc" id="L257">		System.out.println(&quot;amount:&quot;+actual + zenbat);</span>
+<span class="nc" id="L258">		return res;</span>
+	}
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,118 @@
+
+2dataAccess.DataAccess#setLimit(DLdomain/Bezeroa;)Zo
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaó ó("5*á
+3o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaø ø(ÇÄ
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaø ø(
+
+%7void"domain.Bezeroa#setLimitDate()V*
+
+bdomain.Bezeroa2setLimitDate()ÉÆ
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaù ù(
+
+%8void"domain.Bezeroa#setLimit(Z)V*
+
+bdomain.Bezeroa*
+""2setLimit(Z)ÏÌ
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaú ú(
+
+%9void"domain.Bezeroa#setMaxLimit(D)V*
+
+bdomain.Bezeroa*
+""2setMaxLimit(D)*
+1*Ë
+4o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java÷! ÷("ÌÉ
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java÷! ÷(2
+%6boolean"domain.Bezeroa#calculateDate()Z*
+
+bdomain.Bezeroa2calculateDate()*
+3
+1*
+5o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaô ô(Ä
+Á
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaô ô(%
+%0javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+dbÚ×
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaô ô(
+%1domain.Bezeroa"[javax.persistence.EntityManager#find(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;*'
+%
+%0javax.persistence.EntityManager*
+""*
+
+bdomain.Bezeroa2)find(Ljava/lang/Class;Ljava/lang/Object;)§
+¤
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaô ô(
+bdomain.Bezeroa"__id*
+
+%1domain.BezeroaÄ
+Á
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaö ö(%
+%2javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+db±®
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaö ö()
+%3#javax.persistence.EntityTransaction"Ujavax.persistence.EntityManager#getTransaction()Ljavax/persistence/EntityTransaction;*'
+%
+%2javax.persistence.EntityManager2getTransaction()äá
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaö ö(
+
+%4void",javax.persistence.EntityTransaction#begin()V*+
+)
+%3#javax.persistence.EntityTransaction2begin()àİ
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java÷ ÷(
+%5java.util.Date"-domain.Bezeroa#getLimitDate()Ljava/util/Date;*
+
+bdomain.Bezeroa2getLimitDate()*
+3
+4*À
+1o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java€ €(Å
+Â
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java€ €(&
+%10javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+dbš
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java€ €(
+%11void"<javax.persistence.EntityManager#persist(Ljava/lang/Object;)V*(
+&
+%10javax.persistence.EntityManager*
+
+bdomain.Bezeroa2persist(Ljava/lang/Object;)Å
+Â
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java (&
+%12javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+db³°
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java (*
+%13#javax.persistence.EntityTransaction"Ujavax.persistence.EntityManager#getTransaction()Ljavax/persistence/EntityTransaction;*(
+&
+%12javax.persistence.EntityManager2getTransaction()èå
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java (
+%14void"-javax.persistence.EntityTransaction#commit()V*,
+*
+%13#javax.persistence.EntityTransaction2commit()"y
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‚ ‚(
+"":
+"":
+bdomain.BezeroaB
+dataAccess.DataAccess

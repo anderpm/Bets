@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegisterGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bets21</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">RegisterGUI.java</span></div><h1>RegisterGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import businessLogic.BLFacade;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ResourceBundle;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
+
+public class RegisterGUI extends JFrame {
+
+	private JPanel contentPane;
+	private static BLFacade facade;
+<span class="nc" id="L22">	private RegisterGUI nireFrame = this;</span>
+	
+	private JLabel lblError;
+	private JLabel lblUsername;
+	private JLabel lblPassword;
+	private JLabel lblRepeatPassowrd;
+	
+	private JTextField userNameField;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
+	
+	private JButton registerButton;
+	private JButton backButton;
+	
+
+	
+<span class="nc" id="L38">	public RegisterGUI(MainGUI mainFrame) {</span>
+		
+<span class="nc" id="L40">		String language = MainGUI.getLanguage();</span>
+		
+<span class="nc" id="L42">		addWindowListener(new WindowAdapter() {</span>
+			@Override
+			public void windowClosing(WindowEvent e) {
+<span class="nc" id="L45">				mainFrame.setVisible(true);</span>
+<span class="nc" id="L46">			}</span>
+		});
+		
+<span class="nc" id="L49">		facade = MainGUI.getBusinessLogic();</span>
+		
+<span class="nc" id="L51">		setBounds(100, 100, 450, 300);</span>
+<span class="nc" id="L52">		contentPane = new JPanel();</span>
+<span class="nc" id="L53">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L54">		setContentPane(contentPane);</span>
+<span class="nc" id="L55">		contentPane.setLayout(null);</span>
+		
+<span class="nc" id="L57">		userNameField = new JTextField();</span>
+<span class="nc" id="L58">		userNameField.setBounds(162, 29, 249, 32);</span>
+<span class="nc" id="L59">		contentPane.add(userNameField);</span>
+<span class="nc" id="L60">		userNameField.setColumns(10);</span>
+		
+<span class="nc" id="L62">		passwordField = new JPasswordField();</span>
+<span class="nc" id="L63">		passwordField.setBounds(162, 72, 249, 32);</span>
+<span class="nc" id="L64">		contentPane.add(passwordField);</span>
+		
+<span class="nc" id="L66">		passwordField_1 = new JPasswordField();</span>
+<span class="nc" id="L67">		passwordField_1.setBounds(162, 116, 249, 32);</span>
+<span class="nc" id="L68">		contentPane.add(passwordField_1);</span>
+		
+<span class="nc" id="L70">		lblError = new JLabel(ResourceBundle.getBundle(language).getString(&quot;userexists&quot;));</span>
+<span class="nc" id="L71">		lblError.setForeground(new Color(255, 0, 0));</span>
+<span class="nc" id="L72">		lblError.setBounds(149, 231, 169, 32);</span>
+<span class="nc" id="L73">		contentPane.add(lblError);</span>
+<span class="nc" id="L74">		lblError.setVisible(false);</span>
+		
+<span class="nc" id="L76">		lblUsername = new JLabel(ResourceBundle.getBundle(language).getString(&quot;username&quot;));</span>
+<span class="nc" id="L77">		lblUsername.setBounds(22, 37, 141, 15);</span>
+<span class="nc" id="L78">		contentPane.add(lblUsername);</span>
+		
+<span class="nc" id="L80">		lblPassword = new JLabel(ResourceBundle.getBundle(language).getString(&quot;password&quot;));</span>
+<span class="nc" id="L81">		lblPassword.setBounds(22, 80, 141, 15);</span>
+<span class="nc" id="L82">		contentPane.add(lblPassword);</span>
+		
+<span class="nc" id="L84">		lblRepeatPassowrd = new JLabel(ResourceBundle.getBundle(language).getString(&quot;rpassword&quot;));</span>
+<span class="nc" id="L85">		lblRepeatPassowrd.setBounds(22, 124, 141, 15);</span>
+<span class="nc" id="L86">		contentPane.add(lblRepeatPassowrd);</span>
+		
+<span class="nc" id="L88">		registerButton = new JButton(ResourceBundle.getBundle(language).getString(&quot;register&quot;));</span>
+<span class="nc" id="L89">		registerButton.setBounds(22, 169, 141, 32);</span>
+<span class="nc" id="L90">		registerButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L92">				String password = new String(passwordField.getPassword());</span>
+<span class="nc" id="L93">				String password2 = new String(passwordField_1.getPassword());</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">				if(password.equals(password2)) {</span>
+<span class="nc" id="L95">					boolean correct = facade.register(userNameField.getText(), password);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">					if(!correct) {</span>
+<span class="nc" id="L97">						lblError.setText(ResourceBundle.getBundle(language).getString(&quot;userexists&quot;));</span>
+<span class="nc" id="L98">						lblError.setForeground(new Color(255, 0, 0));</span>
+<span class="nc" id="L99">						lblError.setVisible(true);</span>
+					}
+					else {
+<span class="nc" id="L102">						lblError.setText(ResourceBundle.getBundle(language).getString(&quot;registered&quot;));</span>
+<span class="nc" id="L103">						lblError.setForeground(new Color(0, 150, 0));</span>
+<span class="nc" id="L104">						lblError.setVisible(true);</span>
+					}
+<span class="nc" id="L106">				}</span>
+				else {
+<span class="nc" id="L108">					lblError.setText(ResourceBundle.getBundle(language).getString(&quot;mpassword&quot;));</span>
+<span class="nc" id="L109">					lblError.setForeground(new Color(255, 0, 0));</span>
+<span class="nc" id="L110">					lblError.setVisible(true);</span>
+				}	
+<span class="nc" id="L112">			}</span>
+		});
+<span class="nc" id="L114">		contentPane.add(registerButton);</span>
+		
+<span class="nc" id="L116">		backButton = new JButton(ResourceBundle.getBundle(language).getString(&quot;back&quot;));</span>
+<span class="nc" id="L117">		backButton.setBounds(286, 169, 125, 32);</span>
+<span class="nc" id="L118">		backButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L120">				mainFrame.setVisible(true);</span>
+<span class="nc" id="L121">				nireFrame.dispose();</span>
+<span class="nc" id="L122">			}</span>
+		});
+<span class="nc" id="L124">		contentPane.add(backButton);	</span>
+<span class="nc" id="L125">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

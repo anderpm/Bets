@@ -1,0 +1,102 @@
+
+IdataAccess.DataAccess#addPronostic(Ldomain/Question;Ljava/lang/String;D)Zo
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java… …("9*ï
+2o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaŒ
+ Œ("y
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaŒ Œ(
+""*â
+3o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‹ ‹(æã
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‹ ‹(
+
+%9void"-javax.persistence.EntityTransaction#commit()V*+
+)
+%8#javax.persistence.EntityTransaction2commit()*
+2*ô
+4o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‹ ‹(Ä
+Á
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‹ ‹(%
+%7javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+db±®
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‹ ‹()
+%8#javax.persistence.EntityTransaction"Ujavax.persistence.EntityManager#getTransaction()Ljavax/persistence/EntityTransaction;*'
+%
+%7javax.persistence.EntityManager2getTransaction()*
+3*–
+5o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaŠ Š(š—
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaŠ Š(#
+
+%6void"2domain.Question#addPronostic(Ljava/lang/String;D)V*
+
+questiondomain.Question*
+
+descjava.lang.String*
+""2!addPronostic(Ljava/lang/String;D)*
+4*à
+6o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‰ ‰(äá
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‰ ‰(
+
+%5void",javax.persistence.EntityTransaction#begin()V*+
+)
+%4#javax.persistence.EntityTransaction2begin()*
+5*§
+7o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ ˆ(F°
+­
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ ˆ(F
+questiondomain.Question"__id*
+
+%2domain.QuestionÄ
+Á
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‰ ‰(%
+%3javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+db±®
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.java‰ ‰()
+%4#javax.persistence.EntityTransaction"Ujavax.persistence.EntityManager#getTransaction()Ljavax/persistence/EntityTransaction;*'
+%
+%3javax.persistence.EntityManager2getTransaction()*
+6*Û
+8o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ ˆ(EßÜ
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ ˆ(E
+%2domain.Question"[javax.persistence.EntityManager#find(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;*'
+%
+%0javax.persistence.EntityManager*
+""*
+
+%1java.lang.Integer2)find(Ljava/lang/Class;Ljava/lang/Object;)*
+7*µ
+9o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ ˆ(Ä
+Á
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ ˆ(%
+%0javax.persistence.EntityManager"__id*!*
+dataAccess.DataAccess"
+dbòï
+o
+cC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/dataAccess/DataAccess.javaˆ/ ˆ(D
+%1java.lang.Integer"6domain.Question#getQuestionNumber()Ljava/lang/Integer;*
+
+qdomain.Question2getQuestionNumber()*
+8:
+qdomain.Question:
+descjava.lang.String:
+""B
+dataAccess.DataAccess

@@ -1,0 +1,100 @@
+
+hbusinessLogic.BLFacadeImplementation#addKopiatuNi(Ljava/lang/String;Ljava/lang/Double;Ldomain/Bezeroa;)Z~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java† †("startingBlock*“
+
+startingBlock~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java† †(AÍ
+Ê
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java… …(
+%6"
+__annotate*
+javax.jws.WebMethod*
+
+bezeroajava.lang.String¶
+³
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java†$ †(+
+bezeroajava.lang.String"__annotation*
+
+%6Ç
+Ä
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java… …(
+%7"
+__annotate*
+javax.jws.WebMethod*
+
+cjava.lang.Double°
+­
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java†4 †(5
+cjava.lang.Double"__annotation*
+
+%7Å
+Â
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java… …(
+%8"
+__annotate*
+javax.jws.WebMethod*
+
+bdomain.Bezeroa®
+«
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java†? †(@
+bdomain.Bezeroa"__annotation*
+
+%8*
+1*’
+1~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‡ ‡(ß
+Ü
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‡ ‡(
+%0dataAccess.DataAccess"__id*7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerßÜ
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‡ ‡(
+
+%1void"dataAccess.DataAccess#open(Z)V*
+
+%0dataAccess.DataAccess*
+""2open(Z)ß
+Ü
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaˆ ˆ(
+%2dataAccess.DataAccess"__id*7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManagerŸœ
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaˆ ˆ(5
+%3boolean"YdataAccess.DataAccess#addKopiatuNi(Ljava/lang/String;Ljava/lang/Double;Ldomain/Bezeroa;)Z*
+
+%2dataAccess.DataAccess*
+
+bezeroajava.lang.String*
+
+cjava.lang.Double*
+
+bdomain.Bezeroa2BaddKopiatuNi(Ljava/lang/String;Ljava/lang/Double;Ldomain/Bezeroa;)ß
+Ü
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‰ ‰(
+%4dataAccess.DataAccess"__id*7*5&
+$businessLogic.BLFacadeImplementation"
+	dbManager×Ô
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.java‰ ‰(
+
+%5void"dataAccess.DataAccess#close()V*
+
+%4dataAccess.DataAccess2close()"ˆ
+~
+rC:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/businessLogic/BLFacadeImplementation.javaŠ Š(
+"":
+bezeroajava.lang.String:
+cjava.lang.Double:
+bdomain.BezeroaB(&
+$businessLogic.BLFacadeImplementation

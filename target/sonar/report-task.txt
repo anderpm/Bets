@@ -1,0 +1,7 @@
+organization=anderpm
+projectKey=anderpm
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.24399
+dashboardUrl=https://sonarcloud.io/dashboard?id=anderpm
+ceTaskId=AXzS_M4pCEUqjsh_Cnd_
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXzS_M4pCEUqjsh_Cnd_

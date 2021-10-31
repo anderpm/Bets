@@ -1,0 +1,59 @@
+
+,domain.Question#toString()Ljava/lang/String;i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaé é("1*≠
+1i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè	 è(∂
+≥
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè	 è(
+%0java.lang.Integer"__id*'*%
+domain.Question"
+questionNumber≤
+Ø
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè	 è(
+%1java.lang.String"__concat*
+
+%0java.lang.Integer*
+;Ø
+¨
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè è($
+%2java.lang.String"__id*!*
+domain.Question"
+
+questionƒ
+¡
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè	 è($
+%3java.lang.String"__concat*
+
+%1java.lang.String*
+
+%2java.lang.String±
+Æ
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè	 è((
+%4java.lang.String"__concat*
+
+%3java.lang.String*
+;“
+œ
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè) è(C
+%5java.lang.String"-java.lang.Float#toString(F)Ljava/lang/String;*"
+java.lang.Float*
+""ƒ
+¡
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè	 è(C
+%6java.lang.String"__concat*
+
+%4java.lang.String*
+
+%5java.lang.String"Ö
+i
+]C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Question.javaè è(D
+
+%6java.lang.StringB
+domain.Question

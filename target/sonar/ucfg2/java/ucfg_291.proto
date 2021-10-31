@@ -1,0 +1,81 @@
+
+domain.Bezeroa#calculateDate()Zh
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÇ Ç("3*Œ
+2h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaà à(ìê
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaà à(
+%7java.util.Date"java.util.Date•
+¢
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaà à(
+%8"java.util.Date#<init>()V*
+
+%7java.util.Date¨
+©
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaà à(
+domain.Bezeroa"
+	limitDate"__id*
+
+%7java.util.Date"r
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaâ â(
+""*Â
+3h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÉ É(ìê
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÉ É(
+%0java.util.Date"java.util.Date•
+¢
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÉ É(
+%1"java.util.Date#<init>()V*
+
+%0java.util.Date£
+†
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÉ É(
+datejava.util.Date"__id*
+
+%0java.util.Dateπ∂
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÑ Ñ(*
+
+%2long"java.util.Date#getTime()J*
+
+datejava.util.Date2	getTime()¨
+©
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÑ- Ñ(;
+%3java.util.Date"__id*!*
+domain.Bezeroa"
+	limitDate∑¥
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÑ- Ñ(E
+
+%4long"java.util.Date#getTime()J*
+
+%3java.util.Date2	getTime()ñ
+ì
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÜ Ü(
+%5java.io.PrintStream"__id*
+""À»
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaÜ Ü((
+
+%6void"java.io.PrintStream#println(J)V*
+
+%5java.io.PrintStream*
+""2
+println(J)*
+2
+1*·
+1h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaå
+ å("r
+h
+\C:/Users/Sleekbook/Desktop/probaProiektua/Bets/Bets-master/src/main/java/domain/Bezeroa.javaå å(
+""B
+domain.Bezeroa

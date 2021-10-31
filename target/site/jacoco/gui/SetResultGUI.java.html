@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SetResultGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bets21</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">SetResultGUI.java</span></div><h1>SetResultGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import businessLogic.BLFacade;
+import configuration.UtilDate;
+
+import com.toedter.calendar.JCalendar;
+
+import domain.Event;
+import domain.Pronostic;
+import domain.Question;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.beans.*;
+import java.text.DateFormat;
+import java.util.*;
+
+import javax.swing.table.DefaultTableModel;
+
+
+public class SetResultGUI extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+	
+<span class="nc" id="L25">	private String language = MainGUI.getLanguage();</span>
+
+<span class="nc" id="L27">	private final JLabel jLabelEventDate = new JLabel(ResourceBundle.getBundle(language).getString(&quot;EventDate&quot;));</span>
+<span class="nc" id="L28">	private final JLabel jLabelQueries = new JLabel(ResourceBundle.getBundle(language).getString(&quot;Queries&quot;)); </span>
+<span class="nc" id="L29">	private final JLabel jLabelEvents = new JLabel(ResourceBundle.getBundle(language).getString(&quot;Events&quot;)); </span>
+
+	// Code for JCalendar
+<span class="nc" id="L32">	private JCalendar jCalendar1 = new JCalendar();</span>
+<span class="nc" id="L33">	private Calendar calendarAnt = null;</span>
+<span class="nc" id="L34">	private Calendar calendarAct = null;</span>
+<span class="nc" id="L35">	private JScrollPane scrollPaneEvents = new JScrollPane();</span>
+<span class="nc" id="L36">	private JScrollPane scrollPaneQueries = new JScrollPane();</span>
+<span class="nc" id="L37">	private JScrollPane scrollPanePronostic = new JScrollPane();</span>
+	
+<span class="nc" id="L39">	private Vector&lt;Date&gt; datesWithEventsCurrentMonth = new Vector&lt;Date&gt;();</span>
+
+<span class="nc" id="L41">	private JTable tableEvents= new JTable();</span>
+<span class="nc" id="L42">	private JTable tableQueries = new JTable();</span>
+<span class="nc" id="L43">	private JTable tablePronostics = new JTable();</span>
+
+	private DefaultTableModel tableModelEvents;
+	private DefaultTableModel tableModelQueries;
+	private DefaultTableModel tableModelPronostics;
+	
+<span class="nc" id="L49">	private String[] columnNamesEvents = new String[] {</span>
+<span class="nc" id="L50">			ResourceBundle.getBundle(language).getString(&quot;EventN&quot;), </span>
+<span class="nc" id="L51">			ResourceBundle.getBundle(language).getString(&quot;Event&quot;), </span>
+
+	};
+	
+<span class="nc" id="L55">	private String[] columnNamesQueries = new String[] {</span>
+<span class="nc" id="L56">			ResourceBundle.getBundle(language).getString(&quot;QueryN&quot;), </span>
+<span class="nc" id="L57">			ResourceBundle.getBundle(language).getString(&quot;Query&quot;)</span>
+
+	};
+<span class="nc" id="L60">	private String[] columnNamesPronostic = new String[] {</span>
+<span class="nc" id="L61">			ResourceBundle.getBundle(language).getString(&quot;fee&quot;), </span>
+<span class="nc" id="L62">			ResourceBundle.getBundle(language).getString(&quot;pronostic&quot;)</span>
+
+	};
+<span class="nc" id="L65">	private final JLabel lblError = new JLabel(ResourceBundle.getBundle(language).getString(&quot;error&quot;));</span>
+<span class="nc" id="L66">	private final JButton btnBack = new JButton(ResourceBundle.getBundle(language).getString(&quot;back&quot;));</span>
+
+<span class="nc" id="L68">	private SetResultGUI nireFrame = this;</span>
+<span class="nc" id="L69">	private final JButton btnResult = new JButton(ResourceBundle.getBundle(language).getString(&quot;setresult&quot;)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-2$</span>
+
+	
+	public SetResultGUI(AdminGUI adminFrame)
+<span class="nc" id="L73">	{</span>
+<span class="nc" id="L74">		language = MainGUI.getLanguage();</span>
+		try
+		{
+<span class="nc" id="L77">			jbInit(adminFrame);</span>
+		}
+<span class="nc" id="L79">		catch(Exception e)</span>
+		{
+<span class="nc" id="L81">			e.printStackTrace();</span>
+<span class="nc" id="L82">		}</span>
+<span class="nc" id="L83">	}</span>
+	
+	private void jbInit(AdminGUI adminFrame) throws Exception
+	{
+<span class="nc" id="L87">		this.getContentPane().setLayout(null);</span>
+<span class="nc" id="L88">		this.setSize(new Dimension(888, 501));</span>
+<span class="nc" id="L89">		this.setTitle(ResourceBundle.getBundle(language).getString(&quot;QueryQueries&quot;));</span>
+
+<span class="nc" id="L91">		jLabelEventDate.setBounds(new Rectangle(40, 15, 140, 25));</span>
+<span class="nc" id="L92">		jLabelQueries.setBounds(40, 254, 409, 14);</span>
+<span class="nc" id="L93">		jLabelEvents.setBounds(295, 19, 259, 16);</span>
+
+<span class="nc" id="L95">		this.getContentPane().add(jLabelEventDate, null);</span>
+<span class="nc" id="L96">		this.getContentPane().add(jLabelQueries);</span>
+<span class="nc" id="L97">		this.getContentPane().add(jLabelEvents);</span>
+
+<span class="nc" id="L99">		jCalendar1.setBounds(new Rectangle(40, 50, 225, 150));</span>
+
+<span class="nc" id="L101">		BLFacade facade = MainGUI.getBusinessLogic();</span>
+<span class="nc" id="L102">		datesWithEventsCurrentMonth=facade.getEventsMonth(jCalendar1.getDate());</span>
+<span class="nc" id="L103">		CreateQuestionGUI.paintDaysWithEvents(jCalendar1,datesWithEventsCurrentMonth);</span>
+
+		// Code for JCalendar
+<span class="nc" id="L106">		this.jCalendar1.addPropertyChangeListener(new PropertyChangeListener()</span>
+<span class="nc" id="L107">		{</span>
+			public void propertyChange(PropertyChangeEvent propertychangeevent)
+			{
+<span class="nc bnc" id="L110" title="All 2 branches missed.">				if (propertychangeevent.getPropertyName().equals(&quot;locale&quot;))</span>
+				{
+<span class="nc" id="L112">					jCalendar1.setLocale((Locale) propertychangeevent.getNewValue());</span>
+				}
+<span class="nc bnc" id="L114" title="All 2 branches missed.">				else if (propertychangeevent.getPropertyName().equals(&quot;calendar&quot;))</span>
+				{
+<span class="nc" id="L116">					calendarAnt = (Calendar) propertychangeevent.getOldValue();</span>
+<span class="nc" id="L117">					calendarAct = (Calendar) propertychangeevent.getNewValue();</span>
+<span class="nc" id="L118">					DateFormat dateformat1 = DateFormat.getDateInstance(1, jCalendar1.getLocale());</span>
+//					jCalendar1.setCalendar(calendarAct);
+<span class="nc" id="L120">					Date firstDay=UtilDate.trim(new Date(jCalendar1.getCalendar().getTime().getTime()));</span>
+
+<span class="nc" id="L122">					int monthAnt = calendarAnt.get(Calendar.MONTH);</span>
+<span class="nc" id="L123">					int monthAct = calendarAct.get(Calendar.MONTH);</span>
+					
+<span class="nc bnc" id="L125" title="All 2 branches missed.">					if (monthAct!=monthAnt) {</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">						if (monthAct==monthAnt+2) {</span>
+							// Si en JCalendar está 30 de enero y se avanza al mes siguiente, devolvería 2 de marzo (se toma como equivalente a 30 de febrero)
+							// Con este código se dejará como 1 de febrero en el JCalendar
+<span class="nc" id="L129">							calendarAct.set(Calendar.MONTH, monthAnt+1);</span>
+<span class="nc" id="L130">							calendarAct.set(Calendar.DAY_OF_MONTH, 1);</span>
+						}						
+						
+<span class="nc" id="L133">						jCalendar1.setCalendar(calendarAct);</span>
+
+<span class="nc" id="L135">						BLFacade facade = MainGUI.getBusinessLogic();</span>
+
+<span class="nc" id="L137">						datesWithEventsCurrentMonth=facade.getEventsMonth(jCalendar1.getDate());</span>
+					}
+
+<span class="nc" id="L140">					CreateQuestionGUI.paintDaysWithEvents(jCalendar1,datesWithEventsCurrentMonth);</span>
+
+					try {
+<span class="nc" id="L143">						tableModelEvents.setDataVector(null, columnNamesEvents);</span>
+<span class="nc" id="L144">						tableModelEvents.setColumnCount(3); // another column added to allocate ev objects</span>
+
+<span class="nc" id="L146">						BLFacade facade=MainGUI.getBusinessLogic();</span>
+
+<span class="nc" id="L148">						Vector&lt;domain.Event&gt; events=(Vector&lt;Event&gt;) facade.getEvents(firstDay);</span>
+
+<span class="nc bnc" id="L150" title="All 2 branches missed.">						if (events.isEmpty() ) jLabelEvents.setText(ResourceBundle.getBundle(language).getString(&quot;NoEvents&quot;)+ &quot;: &quot;+dateformat1.format(calendarAct.getTime()));</span>
+<span class="nc" id="L151">						else jLabelEvents.setText(ResourceBundle.getBundle(language).getString(&quot;Events&quot;)+ &quot;: &quot;+dateformat1.format(calendarAct.getTime()));</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">						for (domain.Event ev:events){</span>
+<span class="nc" id="L153">							Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+
+<span class="nc" id="L155">							System.out.println(&quot;Events &quot;+ev);</span>
+
+<span class="nc" id="L157">							row.add(ev.getEventNumber());</span>
+<span class="nc" id="L158">							row.add(ev.getDescription());</span>
+<span class="nc" id="L159">							row.add(ev); // ev object added in order to obtain it with tableModelEvents.getValueAt(i,2)</span>
+<span class="nc" id="L160">							tableModelEvents.addRow(row);		</span>
+<span class="nc" id="L161">						}</span>
+<span class="nc" id="L162">						tableEvents.getColumnModel().getColumn(0).setPreferredWidth(25);</span>
+<span class="nc" id="L163">						tableEvents.getColumnModel().getColumn(1).setPreferredWidth(268);</span>
+<span class="nc" id="L164">						tableEvents.getColumnModel().removeColumn(tableEvents.getColumnModel().getColumn(2)); // not shown in JTable</span>
+<span class="nc" id="L165">					} catch (Exception e1) {</span>
+
+<span class="nc" id="L167">						jLabelQueries.setText(e1.getMessage());</span>
+<span class="nc" id="L168">					}</span>
+				}
+<span class="nc" id="L170">			} </span>
+		});
+
+<span class="nc" id="L173">		this.getContentPane().add(jCalendar1, null);</span>
+		
+<span class="nc" id="L175">		scrollPaneEvents.setBounds(new Rectangle(292, 50, 346, 150));</span>
+		
+<span class="nc" id="L177">		scrollPaneQueries.setBounds(new Rectangle(40, 278, 364, 116));</span>
+		
+<span class="nc" id="L179">		scrollPanePronostic.setBounds(new Rectangle(456, 278, 326, 116));</span>
+		
+		
+		 // another column added to allocate ev objects
+
+<span class="nc" id="L184">		tableEvents.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L187">				tableModelQueries.setDataVector(null, columnNamesQueries);</span>
+<span class="nc" id="L188">				tableModelQueries.setColumnCount(3);</span>
+<span class="nc" id="L189">				int i=tableEvents.getSelectedRow();</span>
+<span class="nc" id="L190">				domain.Event ev=(domain.Event)tableModelEvents.getValueAt(i,2); // obtain ev object</span>
+<span class="nc" id="L191">				Vector&lt;Question&gt; queries=ev.getQuestions();</span>
+
+<span class="nc bnc" id="L193" title="All 2 branches missed.">				if (queries.isEmpty())</span>
+<span class="nc" id="L194">					jLabelQueries.setText(ResourceBundle.getBundle(language).getString(&quot;NoQueries&quot;)+&quot;: &quot;+ev.getDescription());</span>
+				else 
+<span class="nc" id="L196">					jLabelQueries.setText(ResourceBundle.getBundle(language).getString(&quot;SelectedEvent&quot;)+&quot; &quot;+ev.getDescription());</span>
+
+<span class="nc bnc" id="L198" title="All 2 branches missed.">				for (domain.Question q:queries){</span>
+<span class="nc" id="L199">					Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+					
+<span class="nc" id="L201">					row.add(q.getQuestionNumber());</span>
+<span class="nc" id="L202">					row.add(q.getQuestion());</span>
+<span class="nc" id="L203">					row.add(q);</span>
+<span class="nc" id="L204">					tableModelQueries.addRow(row);	</span>
+<span class="nc" id="L205">				}</span>
+<span class="nc" id="L206">				tableQueries.getColumnModel().getColumn(0).setPreferredWidth(25);</span>
+<span class="nc" id="L207">				tableQueries.getColumnModel().getColumn(1).setPreferredWidth(268);</span>
+<span class="nc" id="L208">				tableQueries.getColumnModel().removeColumn(tableQueries.getColumnModel().getColumn(2)); // not shown in JTable</span>
+<span class="nc" id="L209">			}</span>
+		});
+
+<span class="nc" id="L212">		scrollPaneEvents.setViewportView(tableEvents);</span>
+<span class="nc" id="L213">		tableModelEvents = new DefaultTableModel(null, columnNamesEvents);</span>
+
+<span class="nc" id="L215">		tableEvents.setModel(tableModelEvents);</span>
+<span class="nc" id="L216">		tableEvents.getColumnModel().getColumn(0).setPreferredWidth(25);</span>
+<span class="nc" id="L217">		tableEvents.getColumnModel().getColumn(1).setPreferredWidth(268);</span>
+<span class="nc" id="L218">		tableQueries.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L221">				tableModelPronostics.setDataVector(null, columnNamesPronostic);</span>
+<span class="nc" id="L222">				tableModelPronostics.setColumnCount(3);</span>
+<span class="nc" id="L223">				int i = tableQueries.getSelectedRow();</span>
+				
+<span class="nc" id="L225">				Question q = (Question) tableModelQueries.getValueAt(i,2);</span>
+<span class="nc" id="L226">				Vector&lt;Pronostic&gt; pronostics = q.getPronostics();</span>
+
+
+<span class="nc bnc" id="L229" title="All 2 branches missed.">				if (pronostics.isEmpty())</span>
+<span class="nc" id="L230">					jLabelQueries.setText(ResourceBundle.getBundle(language).getString(&quot;NoPronostics&quot;)+&quot;: &quot;+q.getQuestion());</span>
+				else 
+<span class="nc" id="L232">					jLabelQueries.setText(ResourceBundle.getBundle(language).getString(&quot;SelectedEvent&quot;)+&quot; &quot;+q.getQuestion());</span>
+
+<span class="nc bnc" id="L234" title="All 2 branches missed.">				for (Pronostic p:pronostics){</span>
+<span class="nc" id="L235">					Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+
+<span class="nc" id="L237">					row.add(p.getFee());</span>
+<span class="nc" id="L238">					row.add(p.getDescription());</span>
+<span class="nc" id="L239">					row.add(p);</span>
+<span class="nc" id="L240">					tableModelPronostics.addRow(row);	</span>
+<span class="nc" id="L241">				}</span>
+<span class="nc" id="L242">				tablePronostics.getColumnModel().getColumn(0).setPreferredWidth(25);</span>
+<span class="nc" id="L243">				tablePronostics.getColumnModel().getColumn(1).setPreferredWidth(268);</span>
+<span class="nc" id="L244">				tablePronostics.getColumnModel().removeColumn(tablePronostics.getColumnModel().getColumn(2));</span>
+<span class="nc" id="L245">			}</span>
+				
+		});
+		
+<span class="nc" id="L249">		scrollPaneQueries.setViewportView(tableQueries);</span>
+<span class="nc" id="L250">		tableModelQueries = new DefaultTableModel(null, columnNamesQueries);</span>
+
+<span class="nc" id="L252">		tableQueries.setModel(tableModelQueries);</span>
+<span class="nc" id="L253">		tableQueries.getColumnModel().getColumn(0).setPreferredWidth(25);</span>
+<span class="nc" id="L254">		tableQueries.getColumnModel().getColumn(1).setPreferredWidth(268);</span>
+
+
+<span class="nc" id="L257">		scrollPanePronostic.setViewportView(tablePronostics);</span>
+<span class="nc" id="L258">		tableModelPronostics = new DefaultTableModel(null, columnNamesPronostic);</span>
+		
+<span class="nc" id="L260">		tablePronostics.setModel(tableModelPronostics);</span>
+<span class="nc" id="L261">		tablePronostics.getColumnModel().getColumn(0).setPreferredWidth(25);</span>
+<span class="nc" id="L262">		tablePronostics.getColumnModel().getColumn(1).setPreferredWidth(268);</span>
+		
+<span class="nc" id="L264">		this.getContentPane().add(scrollPaneEvents, null);</span>
+<span class="nc" id="L265">		this.getContentPane().add(scrollPaneQueries, null);</span>
+<span class="nc" id="L266">		this.getContentPane().add(scrollPanePronostic, null);</span>
+		
+//		JButton btnBet = new JButton(ResourceBundle.getBundle(language).getString(&quot;CreatePronostic&quot;)); //$NON-NLS-1$ //$NON-NLS-2$
+//		btnBet.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				int i = tableQueries.getSelectedRow();
+//				
+//				Question q = (Question) tableModelQueries.getValueAt(i,2);
+//				BLFacade facade=MainGUI.getBusinessLogic();
+//				boolean good = facade.addBet(q, Double.parseDouble(textField.getText()), bezero);
+//				
+//				if(!good) {
+//					lblError.setVisible(true);
+//				}
+//				else {
+//					lblError.setVisible(false);
+//				}
+//				
+//				
+//			}
+//		});
+		
+<span class="nc" id="L288">		lblError.setVisible(false);</span>
+		
+		
+<span class="nc" id="L291">		getContentPane().add(lblError);</span>
+		
+		
+<span class="nc" id="L294">		btnBack.setBounds(315, 428, 89, 23);</span>
+<span class="nc" id="L295">		btnBack.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L297">				adminFrame.setVisible(true);</span>
+<span class="nc" id="L298">				nireFrame.dispose();</span>
+<span class="nc" id="L299">			}</span>
+		});
+<span class="nc" id="L301">		getContentPane().add(btnBack);</span>
+		
+		
+<span class="nc" id="L304">		btnResult.setBounds(549, 411, 89, 23);</span>
+<span class="nc" id="L305">		btnResult.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L307">				int i = tablePronostics.getSelectedRow();</span>
+			
+<span class="nc" id="L309">				Pronostic p = (Pronostic) tableModelPronostics.getValueAt(i,2);</span>
+<span class="nc" id="L310">				BLFacade facade=MainGUI.getBusinessLogic();</span>
+<span class="nc" id="L311">				boolean good = facade.setResult(p);</span>
+			
+<span class="nc bnc" id="L313" title="All 2 branches missed.">				if(!good) {</span>
+<span class="nc" id="L314">					lblError.setVisible(true);</span>
+				}
+				else {
+<span class="nc" id="L317">					JOptionPane.showMessageDialog(null, ResourceBundle.getBundle(language).getString(&quot;setresult&quot;), &quot;&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L318">					lblError.setVisible(false);</span>
+				}
+<span class="nc" id="L320">			}</span>
+		});
+<span class="nc" id="L322">		getContentPane().add(btnResult);</span>
+		
+		
+		
+<span class="nc" id="L326">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

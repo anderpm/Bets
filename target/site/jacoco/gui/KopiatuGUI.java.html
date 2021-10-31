@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KopiatuGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Bets21</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">KopiatuGUI.java</span></div><h1>KopiatuGUI.java</h1><pre class="source lang-java linenums">package gui;
+
+import businessLogic.BLFacade;
+
+
+import domain.Bezeroa;
+import domain.Copy;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+
+import javax.swing.table.DefaultTableModel;
+
+
+public class KopiatuGUI extends JFrame {
+	
+<span class="nc" id="L18">	private String language = MainGUI.getLanguage();</span>
+	private static final long serialVersionUID = 1L; 
+
+	private static BLFacade facade;
+	
+<span class="nc" id="L23">	private JTable tablePronostics = new JTable();</span>
+
+	private DefaultTableModel tableModelPronostics;
+	
+<span class="nc" id="L27">	private JScrollPane scrollPanePronostic = new JScrollPane();</span>
+
+<span class="nc" id="L29">	private KopiatuGUI nireFrame = this;</span>
+
+	private JTextField textEhunekoa;
+	
+	public KopiatuGUI(BezeroGUI bezeroFrame, Bezeroa bezero)
+<span class="nc" id="L34">	{</span>
+		try
+		{
+<span class="nc" id="L37">			jbInit(bezeroFrame, bezero);</span>
+		}
+<span class="nc" id="L39">		catch(Exception e)</span>
+		{
+<span class="nc" id="L41">			e.printStackTrace();</span>
+<span class="nc" id="L42">		}</span>
+<span class="nc" id="L43">	}</span>
+	
+	private void jbInit(BezeroGUI bezeroFrame, Bezeroa bezero) throws Exception
+	{
+		
+<span class="nc" id="L48">		facade = MainGUI.getBusinessLogic();</span>
+
+	
+<span class="nc" id="L51">		String[] columnNamesPronostic = new String[] {</span>
+<span class="nc" id="L52">				ResourceBundle.getBundle(language).getString(&quot;user&quot;), </span>
+		};
+		
+		
+<span class="nc" id="L56">		this.getContentPane().setLayout(null);</span>
+<span class="nc" id="L57">		this.setSize(new Dimension(450, 350));</span>
+<span class="nc" id="L58">		this.getContentPane().add(scrollPanePronostic, null);</span>
+
+<span class="nc" id="L60">		scrollPanePronostic.setBounds(new Rectangle(52, 36, 326, 116));</span>
+<span class="nc" id="L61">		scrollPanePronostic.setViewportView(tablePronostics);</span>
+
+<span class="nc" id="L63">		tableModelPronostics = new DefaultTableModel(null, columnNamesPronostic);</span>
+
+<span class="nc" id="L65">		tableModelPronostics.setDataVector(null, columnNamesPronostic);</span>
+<span class="nc" id="L66">		tableModelPronostics.setColumnCount(1);</span>
+			
+<span class="nc" id="L68">		Vector&lt;Bezeroa&gt; bezeroak = facade.getBezeroak();</span>
+				
+				
+<span class="nc" id="L71">		tablePronostics.setModel(tableModelPronostics);</span>
+		
+<span class="nc" id="L73">		JLabel lblHautatuKopiatuNahi = new JLabel(ResourceBundle.getBundle(language).getString(&quot;copyText&quot;));</span>
+<span class="nc" id="L74">		lblHautatuKopiatuNahi.setBounds(52, 11, 326, 14);</span>
+<span class="nc" id="L75">		getContentPane().add(lblHautatuKopiatuNahi);</span>
+		
+<span class="nc" id="L77">		JButton btnKopiatu = new JButton(ResourceBundle.getBundle(language).getString(&quot;copy&quot;));</span>
+<span class="nc" id="L78">		btnKopiatu.setBounds(52, 213, 89, 23);</span>
+<span class="nc" id="L79">		btnKopiatu.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L81">				int i = tablePronostics.getSelectedRow();</span>
+<span class="nc" id="L82">				String usuario = (String)tableModelPronostics.getValueAt(i,0);</span>
+<span class="nc" id="L83">				System.out.println(usuario);</span>
+//				facade.addKopiatuNi(bezero, usuario);
+
+<span class="nc" id="L86">				Bezeroa b = facade.getUserByUserName(usuario);</span>
+<span class="nc" id="L87">				String e = textEhunekoa.getText();</span>
+<span class="nc" id="L88">				Copy c = new Copy(Double.parseDouble(e), b);</span>
+<span class="nc" id="L89">				boolean res = facade.addKopiatuNi(usuario, Double.parseDouble(e), bezero);</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">				if(res) {</span>
+<span class="nc" id="L91">					JOptionPane.showMessageDialog(null, ResourceBundle.getBundle(language).getString(&quot;copyMSG&quot;), &quot;&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+				}
+				else {
+<span class="nc" id="L94">					JOptionPane.showMessageDialog(null, ResourceBundle.getBundle(language).getString(&quot;errorCopyMSG&quot;), &quot;&quot;, JOptionPane.ERROR_MESSAGE);</span>
+				}
+<span class="nc" id="L96">			}</span>
+		});
+<span class="nc" id="L98">		getContentPane().add(btnKopiatu);</span>
+		
+<span class="nc" id="L100">		textEhunekoa = new JTextField();</span>
+<span class="nc" id="L101">		textEhunekoa.setBounds(140, 172, 86, 20);</span>
+<span class="nc" id="L102">		getContentPane().add(textEhunekoa);</span>
+<span class="nc" id="L103">		textEhunekoa.setColumns(10);</span>
+		
+<span class="nc" id="L105">		JLabel lblEhunekoa = new JLabel(ResourceBundle.getBundle(language).getString(&quot;percentaje&quot;));</span>
+<span class="nc" id="L106">		lblEhunekoa.setBounds(52, 175, 78, 14);</span>
+<span class="nc" id="L107">		getContentPane().add(lblEhunekoa);</span>
+		
+<span class="nc" id="L109">		JButton backButton = new JButton(ResourceBundle.getBundle(language).getString(&quot;Close&quot;));</span>
+<span class="nc" id="L110">		backButton.setBounds(289, 254, 89, 23);</span>
+<span class="nc" id="L111">		backButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L113">				bezeroFrame.setVisible(true);</span>
+<span class="nc" id="L114">				nireFrame.dispose();</span>
+<span class="nc" id="L115">			}</span>
+		});
+<span class="nc" id="L117">		getContentPane().add(backButton);</span>
+		
+		
+<span class="nc bnc" id="L120" title="All 2 branches missed.">		for (Bezeroa b:bezeroak){</span>
+<span class="nc" id="L121">			Vector&lt;Object&gt; row = new Vector&lt;Object&gt;();</span>
+					
+<span class="nc" id="L123">			row.add(b.getUserName());</span>
+<span class="nc" id="L124">			row.add(b);</span>
+<span class="nc" id="L125">			tableModelPronostics.addRow(row);	</span>
+<span class="nc" id="L126">		}</span>
+		
+<span class="nc" id="L128">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
