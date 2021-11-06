@@ -1,0 +1,41 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-10-08 10:25:27 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets-master\src\main\resources\bets.temp' is opened by 9940@Hp
+
+[2021-10-08 10:25:27 #2 type] 
+Type domain.Question is not enhanced.
+
+[2021-10-08 10:25:27 #3 type] 
+Type domain.Pronostic is not enhanced.
+
+[2021-10-08 10:25:27 #4 type] 
+Type domain.Event is not enhanced.
+
+[2021-10-08 10:25:27 #5 type] 
+Type domain.MultipleBets is not enhanced.
+
+[2021-10-08 10:25:27 #6 type] 
+Type domain.Bet is not enhanced.
+
+[2021-10-08 10:25:27 #7 type] 
+Type domain.User is not enhanced.
+
+[2021-10-08 10:25:27 #8 type] 
+Type domain.Admin is not enhanced.
+
+[2021-10-08 10:25:27 #9 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-10-08 10:25:27 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-10-08 10:25:27 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-10-08 10:25:27 #12 type] 
+Type domain.TCashInOut is not enhanced.
+
+[2021-10-08 10:25:27 #13 type] 
+Type domain.TBet is not enhanced.
+

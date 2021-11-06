@@ -1,0 +1,164 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-10-22 16:58:20 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets-master\src\main\resources\bets.temp' is opened by 10460@Hp
+
+[2021-10-22 16:58:21 #2 type.registry] 
+New type domain.User
+
+[2021-10-22 16:58:21 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-10-22 16:58:21 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-10-22 16:58:21 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-10-22 16:58:21 #6 type.registry] 
+New type domain.Copy
+
+[2021-10-22 16:58:21 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-10-22 16:58:21 #8 type.registry] 
+New type domain.Transaction
+
+[2021-10-22 16:58:21 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-10-22 16:58:21 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-10-22 16:58:21 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-10-22 16:58:21 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-10-22 16:58:34 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets-master\src\main\resources\bets.temp' is opened by 9340@Hp
+
+[2021-10-22 16:58:35 #2 type.registry] 
+New type domain.User
+
+[2021-10-22 16:58:35 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-10-22 16:58:35 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-10-22 16:58:35 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-10-22 16:58:35 #6 type.registry] 
+New type domain.Copy
+
+[2021-10-22 16:58:35 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-10-22 16:58:35 #8 type.registry] 
+New type domain.Transaction
+
+[2021-10-22 16:58:35 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-10-22 16:58:35 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-10-22 16:58:35 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-10-22 16:58:35 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-10-22 17:20:19 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets-master\src\main\resources\bets.temp' is opened by 2520@Hp
+
+[2021-10-22 17:20:20 #2 type.registry] 
+New type domain.User
+
+[2021-10-22 17:20:20 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-10-22 17:20:20 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-10-22 17:20:20 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-10-22 17:20:20 #6 type.registry] 
+New type domain.Copy
+
+[2021-10-22 17:20:20 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-10-22 17:20:20 #8 type.registry] 
+New type domain.Transaction
+
+[2021-10-22 17:20:20 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-10-22 17:20:20 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-10-22 17:20:20 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-10-22 17:20:20 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2021-10-22 17:20:20 #13 type.registry] 
+New type domain.TCashInOut
+
+[2021-10-22 17:20:20 #14 type] 
+Type domain.TCashInOut is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-10-22 17:20:29 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets-master\src\main\resources\bets.temp' is opened by 10776@Hp
+
+[2021-10-22 17:20:30 #2 type.registry] 
+New type domain.User
+
+[2021-10-22 17:20:30 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-10-22 17:20:30 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-10-22 17:20:30 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-10-22 17:20:30 #6 type.registry] 
+New type domain.Copy
+
+[2021-10-22 17:20:30 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-10-22 17:20:30 #8 type.registry] 
+New type domain.Transaction
+
+[2021-10-22 17:20:30 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-10-22 17:20:30 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-10-22 17:20:30 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-10-22 17:20:30 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2021-10-22 17:20:30 #13 type.registry] 
+New type domain.TCashInOut
+
+[2021-10-22 17:20:30 #14 type] 
+Type domain.TCashInOut is not enhanced.
+
