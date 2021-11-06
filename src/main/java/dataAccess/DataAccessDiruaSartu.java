@@ -206,6 +206,7 @@ public class DataAccessDiruaSartu  {
 	
 	public boolean diruaSartu(String userName, double zenbat) {
 		try{
+			//Hau proba bat da
 			System.out.println(zenbat);
 			if(zenbat <= 0) {
 				return false;
