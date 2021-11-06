@@ -2,7 +2,7 @@
 <config>
   <businessLogic local="true"> 
 	<businessLogicNode>0.0.0.0</businessLogicNode>
-	<businessLogicPort>1099</businessLogicPort>
+	<businessLogicPort>9999</businessLogicPort>
 	<businessLogicName>Bets</businessLogicName>
   </businessLogic>
   <database local="true">
