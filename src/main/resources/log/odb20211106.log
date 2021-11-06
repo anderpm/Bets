@@ -65,3 +65,134 @@ New type domain.TCashInOut
 [2021-11-06 01:27:20 #14 type] 
 Type domain.TCashInOut is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-11-06 04:25:56 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets\src\main\resources\bets.temp' is opened by 11140@Hp
+
+[2021-11-06 04:25:57 #2 type.registry] 
+New type domain.User
+
+[2021-11-06 04:25:57 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-11-06 04:25:57 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-11-06 04:25:57 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-11-06 04:25:57 #6 type.registry] 
+New type domain.Copy
+
+[2021-11-06 04:25:57 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-11-06 04:25:57 #8 type.registry] 
+New type domain.Transaction
+
+[2021-11-06 04:25:57 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-11-06 04:25:57 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-11-06 04:25:57 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-11-06 04:25:57 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2021-11-06 04:25:57 #13 type.registry] 
+New type domain.TCashInOut
+
+[2021-11-06 04:25:57 #14 type] 
+Type domain.TCashInOut is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-11-06 04:26:35 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets\src\main\resources\bets.temp' has been recovered (tr. 1-40)
+
+[2021-11-06 04:26:35 #2 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets\src\main\resources\bets.temp' is opened by 12600@Hp
+
+[2021-11-06 04:26:36 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-11-06 04:26:36 #4 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-11-06 04:26:36 #5 type] 
+Type domain.Copy is not enhanced.
+
+[2021-11-06 04:26:36 #6 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-11-06 04:26:36 #7 type] 
+Type domain.TCashInOut is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-11-06 04:26:54 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets\src\main\resources\bets.temp' is opened by 12856@Hp
+
+[2021-11-06 04:26:54 #2 type] 
+Type domain.User is not enhanced.
+
+[2021-11-06 04:26:54 #3 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-11-06 04:26:54 #4 type] 
+Type domain.Copy is not enhanced.
+
+[2021-11-06 04:26:54 #5 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-11-06 04:26:54 #6 type] 
+Type domain.TCashInOut is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-11-06 04:27:25 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\probaProiektua\Bets\Bets\src\main\resources\bets.temp' is opened by 9372@Hp
+
+[2021-11-06 04:27:26 #2 type.registry] 
+New type domain.User
+
+[2021-11-06 04:27:26 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-11-06 04:27:26 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-11-06 04:27:26 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-11-06 04:27:26 #6 type.registry] 
+New type domain.Copy
+
+[2021-11-06 04:27:26 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-11-06 04:27:26 #8 type.registry] 
+New type domain.Transaction
+
+[2021-11-06 04:27:26 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-11-06 04:27:26 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-11-06 04:27:26 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-11-06 04:27:26 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2021-11-06 04:27:27 #13 type.registry] 
+New type domain.TCashInOut
+
+[2021-11-06 04:27:27 #14 type] 
+Type domain.TCashInOut is not enhanced.
+
