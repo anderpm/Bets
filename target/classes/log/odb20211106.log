@@ -1,0 +1,67 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-11-06 01:27:09 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\bets2122\Bets2122\Bets\src\main\resources\bets.temp' has been recovered (tr. 1-40)
+
+[2021-11-06 01:27:10 #2 store] 
+Database 'C:\Users\Sleekbook\Desktop\bets2122\Bets2122\Bets\src\main\resources\bets.temp' is opened by 12012@Hp
+
+[2021-11-06 01:27:10 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-11-06 01:27:10 #4 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-11-06 01:27:10 #5 type] 
+Type domain.Copy is not enhanced.
+
+[2021-11-06 01:27:10 #6 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-11-06 01:27:10 #7 type] 
+Type domain.TCashInOut is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-11-06 01:27:20 #1 store] 
+Database 'C:\Users\Sleekbook\Desktop\bets2122\Bets2122\Bets\src\main\resources\bets.temp' is opened by 696@Hp
+
+[2021-11-06 01:27:20 #2 type.registry] 
+New type domain.User
+
+[2021-11-06 01:27:20 #3 type] 
+Type domain.User is not enhanced.
+
+[2021-11-06 01:27:20 #4 type.registry] 
+New type domain.Bezeroa
+
+[2021-11-06 01:27:20 #5 type] 
+Type domain.Bezeroa is not enhanced.
+
+[2021-11-06 01:27:20 #6 type.registry] 
+New type domain.Copy
+
+[2021-11-06 01:27:20 #7 type.registry] 
+New type java.util.Vector<domain.Copy>
+
+[2021-11-06 01:27:20 #8 type.registry] 
+New type domain.Transaction
+
+[2021-11-06 01:27:20 #9 type.registry] 
+New type java.util.Vector<domain.Transaction>
+
+[2021-11-06 01:27:20 #10 type] 
+Type domain.Copy is not enhanced.
+
+[2021-11-06 01:27:20 #11 type] 
+Type domain.Transaction is not enhanced.
+
+[2021-11-06 01:27:20 #12 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2021-11-06 01:27:20 #13 type.registry] 
+New type domain.TCashInOut
+
+[2021-11-06 01:27:20 #14 type] 
+Type domain.TCashInOut is not enhanced.
+
