@@ -17,7 +17,7 @@ public class DiruaSartu2DAB {
 	
 	static TestDataAccess testDA = new TestDataAccess();
 	
-	/*
+	
 	@Test
 	public void test1() {
 		try {
@@ -40,7 +40,7 @@ public class DiruaSartu2DAB {
 	        sut.close();
 	        }
 	}
-	*/
+	
 	
 	@Test
 	public void test2() {
