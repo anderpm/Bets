@@ -209,7 +209,7 @@ public class DataAccess  {
 		query.setParameter(1, date);
 		List<Event> events = query.getResultList();
 	 	 for (Event ev:events){
-	 	   //System.out.println(ev.toString());		 
+	 	   System.out.println(ev.toString());		 
 		   res.add(ev);
 		  }
 	 	return res;

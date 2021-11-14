@@ -14,7 +14,6 @@ import domain.MultipleBets;
 import domain.Pronostic;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
-import iterator.ExtendedIterator;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -45,9 +44,6 @@ public interface BLFacade  {
 	 * @return collection of events
 	 */
 	@WebMethod public List<Event> getEvents(Date date);
-	
-	@WebMethod	
-	public ExtendedIterator<Event> getEventsIt(Date date);
 	
 	/**
 	 * This method retrieves from the database the dates a month for which there are events
