@@ -71,7 +71,7 @@ public class Bezeroa extends User{
 	 */
 	public Bezeroa(String userName, String password) {
 		super(userName, password);
-		this.cash = 0.0;
+		this.cash = 10.0;
 	}
 	
 	public void addCash(double amount) {

@@ -321,8 +321,8 @@ public class DataAccess  {
 
 	private boolean extractedDiruaSartu1(String userName, double zenbat) {
 		Bezeroa bezero = db.find(Bezeroa.class, userName);
-		db.getTransaction().begin();
 		if(!bezero.isLimit()) {
+			db.getTransaction().begin();
 			double actual = bezero.getCash();
 			bezero.setCash(actual + zenbat);
 			bezero.addTransactionInOut(0, zenbat);
