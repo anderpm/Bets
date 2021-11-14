@@ -19,33 +19,35 @@ import domain.MultipleBets;
 import domain.Pronostic;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
+import iterator.ExtendedIterator;
+import iterator.ExtendedIteratorEvents;
 
 /**
  * It implements the business logic as a web service.
  */
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
-	
+
 	DataAccess dbManager;
-	
+
 	private static final String INITIALIZE = "inialize";
-	
+
 	public BLFacadeImplementation()  {		
 		System.out.println("Creating BLFacadeImplementation instance");
 		ConfigXML c=ConfigXML.getInstance();
-		
+
 		if (c.getDataBaseOpenMode().equals(INITIALIZE)) {
-		    dbManager=new DataAccess(c.getDataBaseOpenMode().equals(INITIALIZE));
+			dbManager=new DataAccess(c.getDataBaseOpenMode().equals(INITIALIZE));
 			dbManager.initializeDB();
 			dbManager.close();
 		}
 	}
-	
-    public BLFacadeImplementation(DataAccess da)  {
+
+	public BLFacadeImplementation(DataAccess da)  {
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
 		ConfigXML c=ConfigXML.getInstance();
-		
-		if (c.getDataBaseOpenMode().equals(INITIALIZE)) {
+
+		if (c.getDataBaseOpenMode().equals("initialize")) {
 			da.open(false);
 			da.initializeDB();
 			da.close();
@@ -53,7 +55,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		}
 		dbManager=da;		
 	}
-	
+
 	/**
 	 * This method creates a question for an event, with a question text and the minimum bet
 	 * 
@@ -62,28 +64,29 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @param betMinimum minimum quantity of the bet
 	 * @return the created question, or null, or an exception
 	 * @throws EventFinished if current data is after data of the event
- 	 * @throws QuestionAlreadyExist if the same question already exists for the event
+	 * @throws QuestionAlreadyExist if the same question already exists for the event
 	 */
-   @WebMethod
-   public Question createQuestion(Event event, String question, float betMinimum) throws EventFinished, QuestionAlreadyExist{
-	    //The minimum bed must be greater than 0
+	@WebMethod
+	public Question createQuestion(Event event, String question, float betMinimum) throws EventFinished, QuestionAlreadyExist{
+		//The minimum bed must be greater than 0
 		dbManager.open(false);
 		Question qry=null;
-	    
+
 		if(new Date().compareTo(event.getEventDate())>0)
 			throw new EventFinished(ResourceBundle.getBundle("Etiquetas").getString("ErrorEventHasFinished"));	
-		
+
 		qry=dbManager.createQuestion(event,question,betMinimum);		
 		dbManager.close();
 		return qry;
-   };
-	
+	};
+
 	/**
 	 * This method invokes the data access to retrieve the events of a given date 
 	 * 
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
+	
     @WebMethod	
 	public Vector<Event> getEvents(Date date)  {
 		dbManager.open(false);
@@ -91,7 +94,18 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return events;
 	}
+	
     
+	@WebMethod	
+	public ExtendedIterator<Event> getEventsIt(Date date) {
+		dbManager.open(false);
+		Vector<Event> events = dbManager.getEvents(date);
+		dbManager.close();
+		ExtendedIteratorEvents eie = new ExtendedIteratorEvents(events);
+		return eie;
+	}
+
+
 	/**
 	 * This method invokes the data access to retrieve the dates a month for which there are events
 	 * 
@@ -104,7 +118,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return dates;
 	}
-	
+
 	@WebMethod
 	public void close() {
 		DataAccess dB4oManager=new DataAccess(false);
@@ -115,13 +129,13 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * This method invokes the data access to initialize the database with some events and questions.
 	 * It is invoked only when the option "initialize" is declared in the tag dataBaseOpenMode of resources/config.xml file
 	 */	
-    @WebMethod	
-	 public void initializeBD(){
-    	dbManager.open(false);
+	@WebMethod	
+	public void initializeBD(){
+		dbManager.open(false);
 		dbManager.initializeDB();
 		dbManager.close();
 	}
-	
+
 	/**
 	 * This method calls the data access to create a new User by the given name and password
 	 * @param userName the name of the new user
@@ -135,7 +149,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return correct;
 	}
-	
+
 	/**
 	 * This method calls the data access to return User of the given userName and password
 	 * @param userName Users name
@@ -152,35 +166,35 @@ public class BLFacadeImplementation  implements BLFacade {
 		}
 		return null;
 	}
-    
-    /**
+
+	/**
 	 * This method calls the data access to create a new event with the given description and date
 	 * @param description the description of the new event
 	 * @param eventDate the date of the new event
 	 * @return true if the even is successfully created, false if not.
 	 */
-    @WebMethod
-    public boolean createEvent(String description, Date eventDate) {
-    	if(new Date().compareTo(eventDate)>0) {
-    		return false;
-    	}
-    	dbManager.open(false);
-    	boolean result = dbManager.CreateEvent(description, eventDate);
-    	dbManager.close();
-    	return result;
-    }
+	@WebMethod
+	public boolean createEvent(String description, Date eventDate) {
+		if(new Date().compareTo(eventDate)>0) {
+			return false;
+		}
+		dbManager.open(false);
+		boolean result = dbManager.CreateEvent(description, eventDate);
+		dbManager.close();
+		return result;
+	}
 
 	@WebMethod public boolean diruaSartu(String userName, double zenbat) {
 		dbManager.open(false);
-    	boolean result = dbManager.diruaSartu(userName, zenbat);
-    	dbManager.close();
-    	return result;
+		boolean result = dbManager.diruaSartu(userName, zenbat);
+		dbManager.close();
+		return result;
 	}
 	@WebMethod public boolean diruaAtera(String userName, double zenbat) {
 		dbManager.open(false);
-    	boolean result = dbManager.diruaAtera(userName, zenbat);
-    	dbManager.close();
-    	return result;
+		boolean result = dbManager.diruaAtera(userName, zenbat);
+		dbManager.close();
+		return result;
 	}
 
 	@WebMethod public double getCashByUserName(String userName) {
@@ -189,7 +203,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return ema;
 	}
-	
+
 	@WebMethod public Bezeroa getUserByUserName(String userName) {
 		dbManager.open(false);
 		Bezeroa b = dbManager.getUserByUserName(userName);
@@ -204,7 +218,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return good;
 	}
-	
+
 	@WebMethod
 	public boolean deleteEvent(Event evi) {
 		dbManager.open(false);
@@ -220,7 +234,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return ema;
 	}
-	
+
 	@WebMethod 
 	public int addBetMB(MultipleBets mb, Vector<Pronostic> p, Question q) {
 		dbManager.open(false);
@@ -228,7 +242,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return ema;
 	}
-	
+
 	@WebMethod public boolean setResult(Pronostic p) {
 		dbManager.open(false);
 		boolean good = dbManager.setResult(p);
@@ -265,7 +279,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return res;
 	}
-	
+
 	@WebMethod
 	public boolean setLimit(double limit, Bezeroa b) {
 		dbManager.open(false);
@@ -273,26 +287,26 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return res;
 	}
-	
+
 	public TMBet getTBetByID(int id) {
 		dbManager.open(false);
 		TMBet b = dbManager.getTBetByID(id);
 		dbManager.close();
 		return b;
 	}
-	
+
 	public MultipleBets getMultipleBet(int id) {
 		dbManager.open(false);
 		MultipleBets b = dbManager.getMultipleBet(id);
 		dbManager.close();
 		return b;
 	}
-	
+
 	public boolean cancelLimit(Bezeroa b) {
 		dbManager.open(false);
 		boolean res = dbManager.cancelLimit(b);
 		dbManager.close();
 		return res;
 	}
-	
+
 }
